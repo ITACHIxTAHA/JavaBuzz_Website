@@ -41,3 +41,105 @@ body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--light-b
     background-color: #fff9c4; /* Light Yellow background for alerts */
     border-left: 5px solid #fbc02d;
 }
+.menu-section {
+    padding: 50px 5%;
+    text-align: center;
+    background: #fff;
+}
+
+.menu-section h2 {
+    color: var(--brown);
+    margin-bottom: 30px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.menu-item:hover {
+    border-color: var(--green);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.menu-item h3 { color: var(--brown); margin-bottom: 10px; }
+.menu-item p { font-size: 0.9rem; color: #666; }
+.price { 
+    display: block; 
+    margin-top: 15px; 
+    font-weight: bold; 
+    color: var(--green); 
+    font-size: 1.2rem; 
+}
+
+/* Update: Menu Item for Image Alignment */
+.menu-item {
+    background: #fff;
+    padding: 15px; /* Thoda kam padding taake space manage ho */
+    display: flex;
+    align-items: center; /* Vertical center alignment */
+    gap: 15px; /* Image aur content ke darmiyan gap */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    overflow: hidden; /* Border-radius ko maintain rakhne ke liye */
+}
+
+/* New: Menu Image Styling */
+.menu-img {
+    width: 85px;
+    height: 85px;
+    object-fit: cover; /* Image ko box ke hisab se crop karta hai */
+    border-radius: 10px;
+    flex-shrink: 0; /* Image ko squeeze hone se rokta hai */
+    transition: transform 0.3s ease;
+}
+
+/* Text Container Adjustment */
+.item-info {
+    flex-grow: 1; /* Text bachi hui jagah le lega */
+    text-align: left;
+}
+
+/* Hover Effect Extension */
+.menu-item:hover .menu-img {
+    transform: rotate(3deg) scale(1.1); /* Image thodi tilt aur badi hogi */
+}
+
+/* Price Tag Adjustment */
+.price {
+    flex-shrink: 0; /* Price squeeze na ho */
+    white-space: nowrap; /* Price ek hi line mein rahe */
+    font-weight: bold;
+    color: var(--green);
+    background: #e8f5e9;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .menu-item {
+        padding: 10px;
+        gap: 10px;
+    }
+    .menu-img {
+        width: 60px;
+        height: 60px;
+    }
+    .item-info h4 {
+        font-size: 1rem;
+    }
+}
