@@ -82,64 +82,120 @@ body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--light-b
 }
 
 /* Update: Menu Item for Image Alignment */
-.menu-item {
-    background: #fff;
-    padding: 15px; /* Thoda kam padding taake space manage ho */
-    display: flex;
-    align-items: center; /* Vertical center alignment */
-    gap: 15px; /* Image aur content ke darmiyan gap */
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    border: 1px solid transparent;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    overflow: hidden; /* Border-radius ko maintain rakhne ke liye */
+/* --- Menu Section Styles --- */
+.menu-section {
+    padding: 80px 10%;
+    background-color: #fafafa;
+    text-align: center;
 }
 
-/* New: Menu Image Styling */
-.menu-img {
-    width: 85px;
-    height: 85px;
-    object-fit: cover; /* Image ko box ke hisab se crop karta hai */
-    border-radius: 10px;
-    flex-shrink: 0; /* Image ko squeeze hone se rokta hai */
-    transition: transform 0.3s ease;
+.section-title {
+    font-size: 2.5rem;
+    color: var(--brown);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* Text Container Adjustment */
-.item-info {
-    flex-grow: 1; /* Text bachi hui jagah le lega */
+.category-name {
+    color: var(--green);
+    border-bottom: 2px solid var(--brown);
+    display: inline-block;
+    margin: 40px 0 20px;
+    font-size: 1.5rem;
+    width: 100%;
     text-align: left;
 }
 
-/* Hover Effect Extension */
-.menu-item:hover .menu-img {
-    transform: rotate(3deg) scale(1.1); /* Image thodi tilt aur badi hogi */
+/* Grid System - Fixed for GitHub Display */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
 }
 
-/* Price Tag Adjustment */
+/* Dynamic Item Card - FLEX enabled for images */
+.menu-item {
+    background: #ffffff;
+    padding: 15px;
+    display: flex; /* Image aur Text ko sath lane ke liye zaroori hai */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Image Styling */
+.menu-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+/* Text Container */
+.item-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.item-info h4 {
+    margin: 0;
+    color: var(--brown);
+    font-size: 1.1rem;
+}
+
+.item-info p {
+    margin: 5px 0 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Price Tag */
 .price {
-    flex-shrink: 0; /* Price squeeze na ho */
-    white-space: nowrap; /* Price ek hi line mein rahe */
     font-weight: bold;
     color: var(--green);
     background: #e8f5e9;
     padding: 6px 12px;
     border-radius: 20px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
 
-/* Mobile Responsiveness */
+/* --- Hover Effects --- */
+.menu-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: var(--green);
+    box-shadow: 0 10px 20px rgba(46, 125, 50, 0.1);
+}
+
+.menu-item:hover .menu-img {
+    transform: rotate(3deg) scale(1.1);
+}
+
+.menu-item:hover .price {
+    background: var(--green);
+    color: #fff;
+}
+
+/* Responsive Fix */
 @media (max-width: 600px) {
+    .menu-grid {
+        grid-template-columns: 1fr; /* Mobile par ek column */
+    }
     .menu-item {
         padding: 10px;
-        gap: 10px;
     }
     .menu-img {
         width: 60px;
         height: 60px;
-    }
-    .item-info h4 {
-        font-size: 1rem;
     }
 }
