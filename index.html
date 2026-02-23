@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Buzz | Premium Coffee Shop</title>
+    <meta name="description" content="Java Buzz - The best coffee in town with a warm atmosphere.">
+    <meta name="keywords" content="coffee, java buzz, cafe, espresso, organic beans">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Java <span>Buzz</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#location">Location</a></li>
+        </ul>
+        <button class="order-btn">Order Now</button>
+    </nav>
+
+    <header id="home" class="hero">
+        <h1>Freshly Brewed Excellence</h1>
+        <p>Experience the finest coffee beans from around the world.</p>
+        <a href="#menu" class="cta-btn">View Menu</a>
+    </header>
+
+    <section id="blog">
+        <h2>Our Latest Stories</h2>
+        <div id="blog-container" class="blog-grid">
+            </div>
+    </section>
+
+    <section id="location">
+        <h2>Visit Us</h2>
+        <div id="map" style="height: 400px; width: 100%;"></div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

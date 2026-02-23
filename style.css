@@ -1,0 +1,43 @@
+:root {
+    --brown: #4e342e;
+    --green: #2e7d32;
+    --light-bg: #f5f5f5;
+    --white: #ffffff;
+}
+
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--light-bg); }
+
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%; background: var(--brown); color: white; position: sticky; top: 0; z-index: 1000;
+}
+
+.logo span { color: #81c784; font-weight: bold; }
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; }
+
+.hero {
+    height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085');
+    background-size: cover; display: flex; flex-direction: column; 
+    justify-content: center; align-items: center; color: white; text-align: center;
+}
+
+.cta-btn { background: var(--green); color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin-top: 15px; }
+
+.blog-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; padding: 5%;
+}
+
+.blog-card { background: white; padding: 15px; border-left: 5px solid var(--green); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+.blog-card h3 {
+    color: var(--brown);
+    margin-top: 0;
+}
+
+/* Highlight for Announcements */
+.blog-card:contains('📢'), .blog-card:contains('🎁') {
+    background-color: #fff9c4; /* Light Yellow background for alerts */
+    border-left: 5px solid #fbc02d;
+}
