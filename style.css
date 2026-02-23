@@ -1,201 +1,187 @@
+/* --- Root Variables for Branding --- */
 :root {
     --brown: #4e342e;
     --green: #2e7d32;
-    --light-bg: #f5f5f5;
+    --light-bg: #f8f9fa;
     --white: #ffffff;
+    --text-dark: #333333;
+    --text-muted: #666666;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--light-bg); }
+/* --- General Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    line-height: 1.6;
+    background: var(--light-bg); 
+    color: var(--text-dark);
+}
+
+/* --- Navigation Bar --- */
 .navbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1rem 5%; background: var(--brown); color: white; position: sticky; top: 0; z-index: 1000;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 1rem 5%; 
+    background: var(--brown); 
+    color: white; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
-.logo span { color: #81c784; font-weight: bold; }
-.nav-links { list-style: none; display: flex; gap: 20px; }
-.nav-links a { color: white; text-decoration: none; }
+.logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
+.logo span { color: #81c784; }
 
+.nav-links { list-style: none; display: flex; gap: 25px; }
+.nav-links a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 500;
+    transition: 0.3s;
+}
+.nav-links a:hover { color: #81c784; }
+
+/* --- Hero Section --- */
 .hero {
-    height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085');
-    background-size: cover; display: flex; flex-direction: column; 
-    justify-content: center; align-items: center; color: white; text-align: center;
-}
-
-.cta-btn { background: var(--green); color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin-top: 15px; }
-
-.blog-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; padding: 5%;
-}
-
-.blog-card { background: white; padding: 15px; border-left: 5px solid var(--green); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-
-.blog-card h3 {
-    color: var(--brown);
-    margin-top: 0;
-}
-
-/* Highlight for Announcements */
-.blog-card:contains('📢'), .blog-card:contains('🎁') {
-    background-color: #fff9c4; /* Light Yellow background for alerts */
-    border-left: 5px solid #fbc02d;
-}
-.menu-section {
-    padding: 50px 5%;
+    height: 70vh; 
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085');
+    background-size: cover; 
+    background-position: center;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    color: white; 
     text-align: center;
-    background: #fff;
+    padding: 0 20px;
 }
 
-.menu-section h2 {
-    color: var(--brown);
-    margin-bottom: 30px;
+.hero h1 { font-size: 3.5rem; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+.hero p { font-size: 1.2rem; margin-bottom: 25px; }
+
+.cta-btn { 
+    background: var(--green); 
+    color: white; 
+    padding: 15px 35px; 
+    text-decoration: none; 
+    border-radius: 50px; 
+    font-weight: bold;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+}
+.cta-btn:hover { 
+    transform: scale(1.1); 
+    background: #1b5e20;
+}
+
+/* --- Menu Section --- */
+.menu-section { padding: 80px 8%; background: var(--white); }
+.section-title { 
+    text-align: center; 
+    font-size: 2.5rem; 
+    color: var(--brown); 
+    margin-bottom: 50px; 
+}
+
+.category-name { 
+    color: var(--green); 
+    border-left: 5px solid var(--brown); 
+    padding-left: 15px;
+    margin: 40px 0 25px;
+    font-size: 1.8rem;
 }
 
 .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 30px;
 }
 
 .menu-item {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    background: #fff;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-color: var(--green);
+}
+
+.menu-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 15px;
     transition: 0.3s;
 }
 
-.menu-item:hover {
-    border-color: var(--green);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
+.menu-item:hover .menu-img { transform: rotate(5deg) scale(1.1); }
 
-.menu-item h3 { color: var(--brown); margin-bottom: 10px; }
-.menu-item p { font-size: 0.9rem; color: #666; }
+.item-info { flex-grow: 1; }
+.item-info h4 { color: var(--brown); font-size: 1.2rem; margin-bottom: 5px; }
+.item-info p { color: var(--text-muted); font-size: 0.9rem; font-style: italic; }
+
 .price { 
-    display: block; 
-    margin-top: 15px; 
     font-weight: bold; 
     color: var(--green); 
-    font-size: 1.2rem; 
-}
-
-/* Update: Menu Item for Image Alignment */
-/* --- Menu Section Styles --- */
-.menu-section {
-    padding: 80px 10%;
-    background-color: #fafafa;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    color: var(--brown);
-    margin-bottom: 50px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.category-name {
-    color: var(--green);
-    border-bottom: 2px solid var(--brown);
-    display: inline-block;
-    margin: 40px 0 20px;
-    font-size: 1.5rem;
-    width: 100%;
-    text-align: left;
-}
-
-/* Grid System - Fixed for GitHub Display */
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-bottom: 40px;
-}
-
-/* Dynamic Item Card - FLEX enabled for images */
-.menu-item {
-    background: #ffffff;
-    padding: 15px;
-    display: flex; /* Image aur Text ko sath lane ke liye zaroori hai */
-    align-items: center;
-    justify-content: flex-start;
-    gap: 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    overflow: hidden;
-}
-
-/* Image Styling */
-.menu-img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 10px;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-}
-
-/* Text Container */
-.item-info {
-    flex-grow: 1;
-    text-align: left;
-}
-
-.item-info h4 {
-    margin: 0;
-    color: var(--brown);
-    font-size: 1.1rem;
-}
-
-.item-info p {
-    margin: 5px 0 0;
-    font-size: 0.85rem;
-    color: #666;
-}
-
-/* Price Tag */
-.price {
-    font-weight: bold;
-    color: var(--green);
-    background: #e8f5e9;
-    padding: 6px 12px;
+    background: #e8f5e9; 
+    padding: 8px 15px; 
     border-radius: 20px;
-    font-size: 0.9rem;
     white-space: nowrap;
 }
 
-/* --- Hover Effects --- */
-.menu-item:hover {
-    transform: translateY(-5px) scale(1.02);
-    border-color: var(--green);
-    box-shadow: 0 10px 20px rgba(46, 125, 50, 0.1);
+/* --- Blog Section --- */
+.blog-section { padding: 80px 8%; background: #f0f0f0; }
+.blog-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px;
 }
 
-.menu-item:hover .menu-img {
-    transform: rotate(3deg) scale(1.1);
+.blog-card { 
+    background: white; 
+    padding: 25px; 
+    border-radius: 15px; 
+    border-top: 5px solid var(--brown);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+.blog-card:hover { transform: translateY(-5px); }
+.blog-card h3 { color: var(--brown); margin-bottom: 15px; }
+.blog-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 15px; }
+.blog-card small { color: var(--green); font-weight: bold; }
+
+/* Announcement Blogs Highlight */
+.blog-card.announcement {
+    background: #fff9c4;
+    border-top-color: #fbc02d;
 }
 
-.menu-item:hover .price {
-    background: var(--green);
-    color: #fff;
-}
+/* --- Map Section --- */
+#map { height: 450px; width: 90%; margin: 50px auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 5px solid white; }
 
-/* Responsive Fix */
-@media (max-width: 600px) {
-    .menu-grid {
-        grid-template-columns: 1fr; /* Mobile par ek column */
-    }
-    .menu-item {
-        padding: 10px;
-    }
-    .menu-img {
-        width: 60px;
-        height: 60px;
-    }
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .nav-links { display: none; } /* Mobile par nav chupane ke liye (basic version) */
+    .menu-grid { grid-template-columns: 1fr; }
+    .menu-item { flex-direction: column; text-align: center; }
+    .menu-img { width: 120px; height: 120px; }
 }
